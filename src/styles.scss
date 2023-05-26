@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$Presto-Web-primary: mat.define-palette(mat.$indigo-palette);
-$Presto-Web-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$Presto-Web-Management-Management-primary: mat.define-palette(mat.$indigo-palette);
+$Presto-Web-Management-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$Presto-Web-warn: mat.define-palette(mat.$red-palette);
+$Presto-Web-Management-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$Presto-Web-theme: mat.define-light-theme((
+$Presto-Web-Management-theme: mat.define-light-theme((
   color: (
-    primary: $Presto-Web-primary,
-    accent: $Presto-Web-accent,
-    warn: $Presto-Web-warn,
+    primary: $Presto-Web-Management-primary,
+    accent: $Presto-Web-Management-accent,
+    warn: $Presto-Web-Management-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($Presto-Web-theme);
+@include mat.all-component-themes($Presto-Web-Management-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
