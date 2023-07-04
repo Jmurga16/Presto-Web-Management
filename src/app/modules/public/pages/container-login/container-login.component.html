@@ -1,0 +1,10 @@
+<div id="form-main" class="form-box body-login">
+    <app-sign-in *ngIf="!canChange && !canRecover"></app-sign-in>
+    <app-change-password *ngIf="canChange"></app-change-password>
+    <app-recover-password *ngIf="canRecover"></app-recover-password>
+    <div style="display: flex;">
+        <a *ngIf="!canChange && !canRecover" (click)="changeBox(1)">¿Has olvidado tu contraseña?</a>
+        <a *ngIf="canChange || canRecover" (click)="changeBox(0)">Cuenta de Ingreso</a>
+        <a *ngIf="!canChange" (click)="changeBox(2)" style="margin-left:auto;">Cambiar contraseña</a>
+    </div>
+</div>
