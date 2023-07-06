@@ -2,6 +2,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
+
 html,
 body {
   height: 100%;
@@ -12,3 +13,5 @@ body {
   //font-family: Roboto, "Helvetica Neue", sans-serif;
   font-family  : var(--font-family);
 }
+
+@import 'scss/classes/index';
