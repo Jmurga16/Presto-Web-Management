@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CgLoadingService } from 'src/app/commons/components/loading/services/loading.service';
+import { CgSweetAlertService } from 'src/app/commons/services/sweet-alert/sweet-alert.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,18 +11,42 @@ import { Component } from '@angular/core';
 })
 export class SignInComponent {
 
-  // private validateCredentials(): void {
-  //   this.loadingService.show();
-  //   const request: ISignInRequest = this.form.value as ISignInRequest;
+  form: FormGroup;
 
-  //   setTimeout(() => {
-  //     this.loadingService.hide();
-  //     this.sessionService.saveIdentity(data);
-  //     this.getUserInfo(data.access_token);
-  //   }, 3000);
-  // }
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private alertService: CgSweetAlertService,
+    private loadingService: CgLoadingService,
+  ) {
+    this.form = this.formBuilder.group({
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]]
+    });
+  }
 
-  goToForgtoPassword(): void {
-    //this.router.navi
+  signIn(): void {    
+    if (this.form.valid) {
+      this.validateCredentials();
+    }
+  }
+
+  private validateCredentials(): void {
+    this.loadingService.show();
+  
+    //const request: ISignInRequest = this.form.value as ISignInRequest;
+
+    setTimeout(() => {
+      this.loadingService.hide();      
+      this.goToHome()
+    }, 3000);
+  }
+
+  goToForgotPassword(): void {
+    this.router.navigate(['public/recover-password']);
+  }
+
+  goToHome(): void {
+    this.router.navigateByUrl('/admin');
   }
 }

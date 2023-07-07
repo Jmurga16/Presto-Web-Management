@@ -1,50 +1,26 @@
-<!-- <div class="header-text">
-    <img src="assets/images/presto-logo.png" alt="">
-</div>
-<form>
+<form [formGroup]="form" (ngSubmit)="signIn()">
 
-    <div class="form-box">
+  <p-card header="Bienvenido" class="sign-in__card bcds-pcard">
+    <ng-template pTemplate="header">
+      <img alt="Logo" src="assets/images/presto-logo.png" alt="">
+    </ng-template>
 
-    </div>
-    <span class="p-float-label p-input-icon-right mt-1">
-        <i class="pi pi-user"></i>
-        <input type="text" pInputText id="username" />
-        <label htmlFor="username">Usuario</label>
-    </span>
-
-    <span class="p-float-label p-input-icon-right mt-2">
-        <i class="pi pi-lock"></i>
-        <input type="text" pInputText id="password" />
-        <label htmlFor="password">Contraseña</label>
-    </span>
-
-    <button type="submit" pButton pRipple label="Iniciar Sesión" class="p-3 w-full mt-auto"></button>
-    <a (click)="goToForgtoPassword()">Olvidate Contraseña</a>
-</form> -->
-<p-card header="Bienvenido" class="sign-in__card bcds-pcard">
-  <ng-template pTemplate="header">
-    <img alt="Logo" src="assets/images/presto-logo.png" alt="">
-  </ng-template>
-
-  <form>
     <span class="p-float-label p-input-icon-right mt-1">
       <i class="pi pi-user"></i>
+      <input type="text" pInputText id="username" formControlName="username" autocomplete="off" />
       <label htmlFor="username">Usuario</label>
-      <input type="text" pInputText id="username" />      
     </span>
 
     <span class="p-float-label p-input-icon-right mt-2">
       <i class="pi pi-lock"></i>
+      <input type="text" pInputText class="key-pass" id="password" formControlName="password" autocomplete="off" />
       <label htmlFor="password">Contraseña</label>
-      <input type="text" pInputText id="password" />      
     </span>
 
-    <!-- <button type="submit" pButton pRipple label="Iniciar Sesión" class="p-3 w-full mt-auto"></button>
-    <a (click)="goToForgtoPassword()">Olvidate Contraseña</a> -->
-  </form>
+    <ng-template pTemplate="footer">
+      <p-button type="submit" label="Iniciar Sesión"></p-button>
+      <a (click)="goToForgotPassword()">¿Has olvidado tu Contraseña?</a>
+    </ng-template>
 
-  <ng-template pTemplate="footer">
-    <p-button label="Iniciar Sesión"></p-button>
-    <a (click)="goToForgtoPassword()">Olvidate Contraseña</a>
-  </ng-template>
-</p-card>
+  </p-card>
+</form>

@@ -26,6 +26,22 @@ button {
     margin-top: 1.8rem
 }
 
-.p-card-footer {
-    
+
+:host {
+    ::ng-deep p-card {
+        .p-card {
+            padding: 1rem 2rem 0 2rem !important;
+
+            .p-card-body {
+                padding: 0 0 1.25rem 0;
+            }
+        }
+    }
 }
+
+a {
+    cursor              : pointer;
+    color               : #8cb4ff;
+    text-decoration-line: none
+}
+

@@ -7,12 +7,16 @@ import { PublicRoutingModule } from './public-routing.module';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { PasswordModule } from 'primeng/password';
 
 import { PublicComponent } from './public.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ContainerLoginComponent } from './pages/container-login/container-login.component';
+import { CgSweetAlertModule } from 'src/app/commons/services/sweet-alert/sweet-alert.module';
+import { CgLoadingModule } from 'src/app/commons/components/loading/loading.module';
 
 const ANGULAR_MODULES = [
   PublicRoutingModule,
@@ -24,7 +28,8 @@ const ANGULAR_MODULES = [
 const PRIMENG_MODULES = [
   CardModule,
   InputTextModule,
-  ButtonModule
+  ButtonModule,
+  PasswordModule
 ];
 
 const COMPONENTS = [
@@ -35,11 +40,17 @@ const COMPONENTS = [
   ContainerLoginComponent
 ];
 
+const LIB_MODULES = [
+  CgSweetAlertModule,
+  CgLoadingModule
+];
+
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
     ...ANGULAR_MODULES,
-    ...PRIMENG_MODULES
+    ...PRIMENG_MODULES,
+    ...LIB_MODULES
   ]
 })
 export class PublicModule { }
