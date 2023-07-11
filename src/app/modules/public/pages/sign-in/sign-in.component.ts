@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CgLoadingService } from 'src/app/commons/components/loading/services/loading.service';
 import { CgSweetAlertService } from 'src/app/commons/services/sweet-alert/sweet-alert.service';
 
@@ -18,14 +18,15 @@ export class SignInComponent {
     private formBuilder: FormBuilder,
     private alertService: CgSweetAlertService,
     private loadingService: CgLoadingService,
+    private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
-      username: [null, [Validators.required]],
+      username: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
     });
   }
 
-  signIn(): void {    
+  signIn(): void {
     if (this.form.valid) {
       this.validateCredentials();
     }
@@ -33,17 +34,19 @@ export class SignInComponent {
 
   private validateCredentials(): void {
     this.loadingService.show();
-  
+
     //const request: ISignInRequest = this.form.value as ISignInRequest;
 
     setTimeout(() => {
-      this.loadingService.hide();      
+      this.loadingService.hide();
       this.goToHome()
     }, 3000);
   }
 
   goToForgotPassword(): void {
-    this.router.navigate(['public/recover-password']);
+    this.router.navigate(['../recover-password'], {
+      relativeTo: this.route,
+    });
   }
 
   goToHome(): void {
